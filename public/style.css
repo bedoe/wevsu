@@ -1,0 +1,66 @@
+body{
+  background: url('https://cdn.pixabay.com/photo/2016/11/29/08/15/beach-1868342__340.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.head{
+  font-family: Livvic;
+  font-weight: 300;
+  font-size: 58px;
+  text-align: center;
+  margin-bottom: 35px;
+  padding-top: 21px;
+}
+
+.head2
+{
+  margin-top: 9px;
+  font-family: Livvic;
+  font-weight: 200;
+  text-align: center;
+  font-size: 28px;
+}
+
+.myButton
+{
+  background: none;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 5px;
+  padding: 6px 12px;
+  margin: auto;
+  box-shadow: none;
+}
+
+.myButton:focus
+{
+  outline: none;
+}
+
+.container
+{
+  display: flex;
+  
+}
+
+.myContainer
+{
+  margin-top: 20%;  
+  animation: myfill 3s;
+  background-color: #be6e46;
+  height: 320px;
+}
+
+@keyframes myfill
+{
+  from 
+  {
+    opacity: 0;
+  }
+  to
+  {
+    opacity: 1;
+    background-color: #be6e46;
+  }
+}
