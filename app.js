@@ -5,10 +5,11 @@ var bodyParser = require("body-parser");
 var mysql = require("mysql");
 
 var conn = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Bedoe.04",
-  database: "giftapp"
+  host: process.env.OPENSHIFT_MYSQL_DB_HOST,
+  user: process.env.OPENSHIFT_MYSQL_DB_USERNAME,
+  password: process.env.OPENSHIFT_MYSQL_DB_PASSWORD,
+  port: process.env.OPENSHIFT_MYSQL_DB_PORT,
+  database: process.env.OPENSHIFT_APP_NAME
 });
 
 conn.connect(err => {
@@ -48,6 +49,9 @@ app.post("/about", (req, res) => {
   );
 });
 
-app.listen(8080, () => {
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8443;
+var ip_address = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+
+app.listen(port, ip_address, () => {
   console.log("Server listening on port 8080");
 });
