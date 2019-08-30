@@ -39,14 +39,25 @@ app.post("/greet", (req, res) => {
 
 app.post("/about", (req, res) => {
   var details = req.body.details;
-  conn.query(
-    "SELECT * FROM giftapp where name= ?",
-    details.charAt(0).toUpperCase() + details.slice(1),
-    (err, rs) => {
-      console.log(rs[0].name);
-      res.render("success", { myR: rs[0] });
-    }
-  );
+  //   conn.query(
+  //     "SELECT * FROM giftapp where name= ?",
+  //     details.charAt(0).toUpperCase() + details.slice(1),
+  //     (err, rs) => {
+  //       console.log(rs[0].name);
+  //       res.render("success", { myR: rs[0] });
+  //     }
+  //   );
+
+  if (details.toUpperCase == "KYLIE") {
+    var rs = {
+      name: "Kylie",
+      fav_img: "https://i.ibb.co/yB7gT33/20190830-003750.jpg",
+      paragraph:
+        "I really have lots of stuff to tell you, mainly about how adorable you are, how nice you are while talking to me. But it is getting late here, the styling really took hell of time!!! But I will try to open the database later and change this paragpraph. So, make sure to check out here once a day for more changes!!! Lots of love, Badawi!"
+    };
+
+    res.render("success", { myR: rs });
+  }
 });
 
 var port = process.env.OPENSHIFT_NODEJS_PORT || 8443;
